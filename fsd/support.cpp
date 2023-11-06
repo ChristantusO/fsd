@@ -20,6 +20,7 @@
 #include "support.h"
 #include "global.h"
 #include "server.h"
+#define M_PI       3.14159265358979323846   // pi
 
 int logp=0;
 time_t timer=100000;
@@ -58,7 +59,10 @@ void dolog(int level, const char *string, ...)
    va_list ap;
 
    if (!logfile) return;
-   loctime = localtime(&secs);
+   /*Chris modified this section to ensure that the long sec adapts to time definition*/
+   std::time_t temp_secs = secs;
+   loctime = localtime(&temp_secs);
+   //loctime = localtime(&secs); //Original code
    va_start(ap,string);
    vsprintf(buf,string,ap);
    va_end(ap);

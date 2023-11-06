@@ -47,7 +47,8 @@ auth_validate_ip(struct sockaddr_in *sa)
   struct hostent *he;		/* Result from gethostbyname */
   int count;			/* Retry counter for hostname lookups */
 
-  ips = inet_ntoa(sa->sin_addr);
+  ips = inet_ntoa(sa->sin_addr); //Original
+  //ips = inet_ntop(sa->sin_addr); //Modified by chris
   if (ips == NULL) {
     /* XXX log something */
     return 1;
