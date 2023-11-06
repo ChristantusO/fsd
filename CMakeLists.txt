@@ -3,6 +3,15 @@ project(fsd
         VERSION 3.99.0
         LANGUAGES C CXX)
 
+##########Modified by chris
+#add_definitions(-D_CRT_SECURE_NO_WARNINGS
+#        -D_CRT_SECURE_NO_DEPRECATE
+#        -D_CRT_NONSTDC_NO_WARNINGS
+#        -D_CRT_SECURE_NO_WARNINGS_GLOBALS
+#        -D_WINSOCK_DEPRECATED_NO_WARNINGS) #Added by chris
+
+###########
+
 add_executable(fsd
         fsd/attributes.h
         fsd/authenticate.c
@@ -47,5 +56,10 @@ add_executable(fsd
         fsd/user.h
         fsd/wprofile.cpp
         fsd/wprofile.h)
+##########Modified by chris
+if(WIN32)
+    target_link_libraries(fsd wsock32 ws2_32)
+endif()
+###########
 set_property(TARGET fsd PROPERTY CXX_STANDARD 14)
 set_property(TARGET fsd PROPERTY CXX_STANDARD_REQUIRED ON)
