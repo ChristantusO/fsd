@@ -1,6 +1,6 @@
 Windows
 --------
-This server was compiled from the codes in .\source\repos\ChristantusO\fsd. It is also available on my Github account.
+This server was compiled from the [codes](https://github.com/ChristantusO/fsd/tree/master) which was forked from the [original code](https://github.com/kuroneko/fsd).
 
 HOW TO INSTALL THE FSD SERVER
 ----------------
